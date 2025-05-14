@@ -28,6 +28,8 @@ jobs:
        uses: hashicorp/setup-terraform@v3
      - name: initialize terraform 
        run: terraform init
+     - name: Check Terraform Format
+       run: terraform fmt -check -diff
      - name: terraform fmt
        uses: dflook/terraform-fmt-check@v1
        id: fmt-check
