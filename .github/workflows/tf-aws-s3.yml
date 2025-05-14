@@ -1,0 +1,29 @@
+name: Create an S3 Bucket using Terraform in AWS
+
+on:
+  push:
+    branches:
+      - "main"
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+    steps:
+     - name: code checkout
+       uses: actions/checkout@v4
+     - name: configure aws credentials
+       uses: aws-actions/aws-configure@v2
+       with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        
+ 
+ 
+
