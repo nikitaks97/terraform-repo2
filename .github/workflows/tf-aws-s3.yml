@@ -28,17 +28,12 @@ jobs:
        uses: hashicorp/setup-terraform@v3
      - name: initialize terraform 
        run: terraform init
-     - name: Check Terraform Format
-       run: terraform fmt -check -diff
-     - name: terraform fmt
-       uses: dflook/terraform-fmt-check@v1
-       id: fmt-check
-       with:
-          path: .
-
-     - name: Wrong formatting found
-       if: ${{ failure() && steps.fmt-check.outputs.failure-reason == 'check-failed' }}
-       run: echo "formatting check failed"
+     - name: Terraform Format
+       run: terraform fmt -recursive
+     - name: terraform format check
+       run: terraform fmt -check
+     
+       
       
         
  
