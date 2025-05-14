@@ -33,7 +33,7 @@ jobs:
      - name: terraform format check
        run: terraform fmt -check
      - name: terraform plan 
-       run: terraform plan -out
+       run: terraform plan 
      - name: terraform apply
        run: terraform apply
      
