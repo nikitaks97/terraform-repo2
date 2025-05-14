@@ -2,7 +2,7 @@ resource "aws_s3_bucket" "example" {
   bucket = "my-tf-test-bucket"
 
   tags = {
-    Name        = "Bucket-nk-000"
+    Name        = "yellow-petals"
     Environment = "Dev"
   }
 }
