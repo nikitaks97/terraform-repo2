@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "example" {
-  bucket = "n"
+  bucket = "yellow-petals"
 
   tags = {
     Name        = "k"
