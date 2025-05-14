@@ -23,6 +23,21 @@ jobs:
        with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+     - name: install terraform 
+       uses: hashicorp/setup-terraform@v3
+     - name: initialize terraform 
+       run: terraform init
+     - name: terraform fmt
+       uses: dflook/terraform-fmt-check@v1
+       id: fmt-check
+       with:
+          path: my-terraform-config
+
+     - name: Wrong formatting found
+       if: ${{ failure() && steps.fmt-check.outputs.failure-reason == 'check-failed' }}
+       run: echo "formatting check failed"
+      
         
  
  
